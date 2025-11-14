@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
-
 .shopping-cart-page {
   display: flex;
   justify-content: center;
@@ -9,7 +7,6 @@
 }
 
 .shopping-cart {
-  font-family: "Geist", "Segoe UI", Arial, sans-serif;
   width: min(480px, calc(100% - 32px));
   background: #ffffff;
   border-radius: 18px;
@@ -185,7 +182,7 @@
 @media (max-width: 520px) {
   body {
     display: block;
-    padding: 24px 0;
+    padding: 0px 0;
   }
 
   .shopping-cart {
