@@ -22,6 +22,17 @@ function ContactListManager() {
   // Add a new contact to the list
   const addContact = () => {
     if (job_title.trim() !== "") {
+      // Check for duplicate job_title
+      const isDuplicate = contacts.some(
+        (contact) =>
+          contact.job_title.toLowerCase() === job_title.trim().toLowerCase()
+      );
+
+      if (isDuplicate) {
+        alert("Same contact already exists!");
+        return; // Don't add the contact
+      }
+
       setContacts([
         ...contacts,
         { job_title, birthday, notes, website, favorite },
@@ -37,7 +48,7 @@ function ContactListManager() {
   // Delete a contact from the list
   const deleteContact = (index) => {
     const newContacts = [...contacts];
-    newContacts.splice(index, 1); // Remove 1 item at index
+    newContacts.splice(index, 1);
     setContacts(newContacts);
   };
 
