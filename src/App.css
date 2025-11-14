@@ -1,5 +1,9 @@
- /* Layout Styles */
- nav {
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+/* Layout Styles */
+body {
+  font-family: "Geist", "Segoe UI", Arial, sans-serif;
+}
+nav {
   background-color: #333;
   color: #fff;
   padding: 1rem;
@@ -9,7 +13,7 @@ ul {
   list-style: none;
   padding: 0;
 }
- 
+
 li {
   display: inline;
   margin-right: 1rem;
