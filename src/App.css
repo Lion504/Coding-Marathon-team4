@@ -24,6 +24,20 @@ a {
   color: #fff;
 }
 
+/* Home list styles */
+ol {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+ol li {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: decimal;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
 /* Page Content Styles */
 main {
   padding: 2rem;
