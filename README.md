@@ -24,3 +24,5 @@
   change, so the total always reflects the current item list.
 
 ## 5. Signup Page - Tamseela
+
+- `SignupPage` Function to handle the Signup Functionality, it checks whether the email and password are using the right format and sign up the user..
