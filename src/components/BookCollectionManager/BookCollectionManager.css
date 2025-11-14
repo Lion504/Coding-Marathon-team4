@@ -1,63 +1,172 @@
 .book-collection {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 30px;
+    max-width: 500px;
     background-color: #f4f4f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   }
-   
+
   .book-collection h1 {
     text-align: center;
     color: #2d3e50;
+    margin-bottom: 20px;
   }
-  
-  .book-collection input {
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    border-radius: 4px;
+
+  .book-collection .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .book-collection .form-container input {
+    padding: 14px 16px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: 0.2s ease;
   }
-  
+
+  .book-collection .form-container button {
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+
+  .book-collection input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+  }
+
   .book-collection button {
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 16px;
+    font-size: 16px;
+    margin-top: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
   }
-  
+
   .book-collection button:hover {
     background-color: #45a049;
   }
-  
+
   .book-collection ol {
-    padding-left: 20px;
+    padding-left: 0px;
+    margin-top: 20px;
   }
-  
+
   .book-collection li {
-    padding: 8px;
+    list-style: none;
+    padding: 12px;
     background-color: #fff;
-    margin: 5px 0;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 8px 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .book-collection li button {
     background-color: #e74c3c;
+    padding: 8px;
     border-radius: 50%;
     border: none;
     color: white;
     cursor: pointer;
+    font-size: 12px;
   }
-  
+
   .book-collection li button:hover {
     background-color: #c0392b;
   }
-  
+
+  .book-collection li.book-item {
+    list-style: none;
+    padding: 14px 18px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .book-collection .book-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-collection .book-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .book-collection .book-details {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+  }
+
+  .book-collection .delete-button {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    align-self: center;
+  }
+
+  .book-collection .delete-button:hover {
+    background-color: #c0392b;
+  }
+
+  .search-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .search-container input {
+    padding: 12px;
+    flex: 1;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+  }
+
+  .search-container button {
+    padding: 12px 20px;
+  }
+
+  .search-result {
+    margin-top: 15px;
+    padding: 12px;
+    background: #eaf7ea;
+    border-left: 4px solid #4CAF50;
+    border-radius: 6px;
+  }
+
+  .search-result.not-found {
+    background: #fdeaea;
+    border-left: 4px solid #e74c3c;
+  }
+
