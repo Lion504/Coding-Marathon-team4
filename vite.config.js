@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/coding-Marathon-team4/",
+  base: "/Coding-Marathon-team4/",
   plugins: [react()],
 });

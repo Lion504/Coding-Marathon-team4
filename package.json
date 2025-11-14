@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lion504.github.io/coding-Marathon-team4/",
+  "homepage": "https://lion504.github.io/Coding-Marathon-team4/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
