@@ -24,7 +24,7 @@
 
 - **Comments and Documentation**
   - [yes] Are there comments explaining complex logic?
-  - [No] Is there documentation for how to use the component? didn't write that
+  - [yes] Is there documentation for how to use the component?
 
 ## 3. Performance
 
@@ -71,5 +71,5 @@
 ```
 Modern React Practices
 Good Component Separation
-
+Well-structured code
 ```
