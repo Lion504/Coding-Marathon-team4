@@ -60,8 +60,9 @@ function ShoppingCart() {
   }
 
   function addItem() {
+    const trimmedName = newItem.itemName.trim();
     const quantity = Number(newItem.quantity);
-    if (newItem.itemName.trim() === "" || !Number.isFinite(quantity)) {
+    if (trimmedName === "" || !Number.isFinite(quantity)) {
       return;
     }
 
@@ -70,10 +71,30 @@ function ShoppingCart() {
       return;
     }
 
-    const price = parseFloat((Math.random() * 15 + 5).toFixed(2)); // Random price between 5 and 20 as a placeholder price
-    setItems((i) => [...i, { ...newItem, quantity, price }]);
+    const normalizeName = (name) => name.trim().toLowerCase();
+    const normalizedNewName = normalizeName(trimmedName);
+    let merged = false;
+
+    setItems((prevItems) => {
+      const existingIndex = prevItems.findIndex(
+        (item) => normalizeName(item.itemName) === normalizedNewName
+      );
+      // If the item exists, merges the quantities.
+      if (existingIndex !== -1) {
+        merged = true;
+        return prevItems.map((item, i) =>
+          i === existingIndex
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      }
+
+      const price = parseFloat((Math.random() * 15 + 5).toFixed(2)); // Random price between 5 and 20 as a placeholder price
+      return [...prevItems, { itemName: trimmedName, quantity, price }];
+    });
+
     setNewItem({ itemName: "", quantity: "" });
-    setNotice("");
+    setNotice(merged ? `Updated quantity for ${trimmedName}.` : "");
   }
 
   function deleteItem(index) {
@@ -86,50 +107,58 @@ function ShoppingCart() {
   }
 
   return (
-    <div className="shopping-cart">
-      <h1>Shopping Cart</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Enter item name..."
-          name="itemName"
-          value={newItem.itemName}
-          onChange={handleInputChange}
-        />
-        <input
-          type="number"
-          placeholder="Enter quantity..."
-          name="quantity"
-          value={newItem.quantity}
-          min="1"
-          onChange={handleInputChange}
-        />
-        {notice && <p className="notice">{notice}</p>}{" "}
-        {/* Shows a notice if there's a message in the notice state */}
-        <button onClick={addItem}>Add Item</button>
-      </div>
-      <ol>
-        {items.map((item, index) => (
-          <li key={index}>
-            {item.itemName}
+    <section className="shopping-cart-page">
+      <div className="shopping-cart">
+        <h1>Shopping Cart</h1>
+        <div className="add-item-form">
+          <div className="add-item-fields">
+            <input
+              type="text"
+              placeholder="Enter item name..."
+              name="itemName"
+              value={newItem.itemName}
+              onChange={handleInputChange}
+            />
             <input
               type="number"
-              value={item.quantity}
-              onChange={(event) => handleQuantityChange(index, event)}
+              placeholder="0"
+              name="quantity"
+              value={newItem.quantity}
+              min="1"
+              onChange={handleInputChange}
             />
-            <button onClick={() => deleteItem(index)}>Delete</button>
-            {(item.price * item.quantity).toFixed(2)} €
-          </li>
-        ))}
-        {items.length === 0 && <p>No items in the cart</p>}{" "}
-        {/* Shows if the cart is empty */}
-        {/* Show the following when the cart isn't empty */}
-        {items.length > 0 && <p>Subtotal: {subtotal.toFixed(2)} €</p>}
-        {items.length > 0 && <p>Tax (24%): {tax.toFixed(2)} €</p>}
-        {items.length > 0 && <p>Total with Tax: {total.toFixed(2)} €</p>}
-        {items.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
-      </ol>
-    </div>
+            <button onClick={addItem}>Add Item</button>
+          </div>
+          {notice && <p className="notice">{notice}</p>}{" "}
+          {/* Shows a notice if there's a message in the notice state */}
+        </div>
+        <ol>
+          {items.map((item, index) => (
+            <li key={index}>
+              <span className="item-name">{item.itemName}</span>
+              <div className="item-qty-price">
+                <input
+                  type="number"
+                  value={item.quantity}
+                  onChange={(event) => handleQuantityChange(index, event)}
+                />
+                <span className="item-price">
+                  {(item.price * item.quantity).toFixed(2)} €
+                </span>
+              </div>
+              <button onClick={() => deleteItem(index)}>Delete</button>
+            </li>
+          ))}
+          {items.length === 0 && <p>No items in the cart</p>}{" "}
+          {/* Shows if the cart is empty */}
+          {/* Show the following when the cart isn't empty */}
+          {items.length > 0 && <p>Subtotal: {subtotal.toFixed(2)} €</p>}
+          {items.length > 0 && <p>Tax (24%): {tax.toFixed(2)} €</p>}
+          {items.length > 0 && <p>Total with Tax: {total.toFixed(2)} €</p>}
+          {items.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
+        </ol>
+      </div>
+    </section>
   );
 }
 
