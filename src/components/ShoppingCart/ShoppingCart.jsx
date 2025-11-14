@@ -75,7 +75,7 @@ function ShoppingCart() {
           min="1"
           onChange={handleInputChange}
         />
-        {notice && <p className="notice">{notice}</p>} // Shows a notice if there's a message in the notice state
+        {notice && <p className="notice">{notice}</p>} {/* Shows a notice if there's a message in the notice state */}
         <button onClick={addItem}>Add Item</button>
       </div>
       <ol>
