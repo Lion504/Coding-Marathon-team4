@@ -1,9 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+const TAX_RATE = 0.24;
 
 function ShoppingCart() {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState({ itemName: "", quantity: "" });
   const [notice, setNotice] = useState("");
+  const [subtotal, setSubtotal] = useState(0);
+  const [tax, setTax] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(
+    function updateCartTotals() {
+      // Goes through the items and calculate the subtotal
+      const newSubtotal = items.reduce(
+        (runningTotal, item) => runningTotal + item.price * item.quantity,
+        0
+      );
+      const newTax = newSubtotal * TAX_RATE;
+      const newTotal = newSubtotal + newTax;
+
+      setSubtotal(newSubtotal);
+      setTax(newTax);
+      setTotal(newTotal);
+    },
+    [items]
+  );
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -102,39 +124,9 @@ function ShoppingCart() {
         {items.length === 0 && <p>No items in the cart</p>}{" "}
         {/* Shows if the cart is empty */}
         {/* Show the following when the cart isn't empty */}
-        {items.length > 0 && (
-          <p>
-            Subtotal:{" "}
-            {items
-              .reduce((total, item) => total + item.price * item.quantity, 0)
-              .toFixed(2)}{" "}
-            €
-          </p>
-        )}
-        {items.length > 0 && (
-          <p>
-            Tax (24%):{" "}
-            {items
-              .reduce(
-                (total, item) => total + item.price * item.quantity * 0.24,
-                0
-              )
-              .toFixed(2)}{" "}
-            €
-          </p>
-        )}
-        {items.length > 0 && (
-          <p>
-            Total with Tax:{" "}
-            {items
-              .reduce(
-                (total, item) => total + item.price * item.quantity * 1.24,
-                0
-              )
-              .toFixed(2)}{" "}
-            €
-          </p>
-        )}
+        {items.length > 0 && <p>Subtotal: {subtotal.toFixed(2)} €</p>}
+        {items.length > 0 && <p>Tax (24%): {tax.toFixed(2)} €</p>}
+        {items.length > 0 && <p>Total with Tax: {total.toFixed(2)} €</p>}
         {items.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
       </ol>
     </div>
