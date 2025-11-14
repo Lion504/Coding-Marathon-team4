@@ -45,50 +45,53 @@ function ContactListManager() {
     <div className="contact-list">
       <h1>Contact List Manager</h1>
       <div className="form-container">
-        <label>
-          Job Title
-          <input
-            type="text"
-            placeholder="Job Title"
-            value={job_title}
-            onChange={handleJobTitleChange}
-          />
-        </label>
-        <label>
-          Birthday
-          <input
-            type="date"
-            placeholder="Birthday"
-            value={birthday}
-            onChange={handleBirthdayChange}
-          />
-        </label>
-        <label>
-          Notes
-          <textarea
-            placeholder="Notes"
-            value={notes}
-            onChange={handleNotesChange}
-          />
-        </label>
-        <label>
-          Website
-          <input
-            type="url"
-            placeholder="Website"
-            value={website}
-            onChange={handleWebsiteChange}
-          />
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={favorite}
-            onChange={handleFavoriteChange}
-          />
-          Favorite
-        </label>
-        <button onClick={addContact}>Add Contact</button>
+        <div>
+          Please fill in at least the Job Title to add a contact.
+          <div className="input-group">
+            Job Title
+            <input
+              type="text"
+              placeholder="Job Title"
+              value={job_title}
+              onChange={handleJobTitleChange}
+            />
+          </div>
+          <div className="input-group">
+            Birthday
+            <input
+              type="date"
+              placeholder="Birthday"
+              value={birthday}
+              onChange={handleBirthdayChange}
+            />
+          </div>
+          <div className="input-group">
+            Notes
+            <textarea
+              placeholder="Notes"
+              value={notes}
+              onChange={handleNotesChange}
+            />
+          </div>
+          <div className="input-group">
+            Website
+            <input
+              type="url"
+              placeholder="Website"
+              value={website}
+              onChange={handleWebsiteChange}
+            />
+          </div>
+          <div className="input-group">
+            Favorite
+            <input
+              type="checkbox"
+              checked={favorite}
+              onChange={handleFavoriteChange}
+            />
+          </div>
+          <button onClick={addContact}>Add Contact</button>
+        </div>
       </div>
       <ol className="contact-list-display">
         {contacts.map((contact, index) => (
