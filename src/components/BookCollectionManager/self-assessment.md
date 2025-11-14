@@ -2,33 +2,46 @@
 
 ## 1. Functionality
 - **Does the component meet the requirements?**
-  - [yes] Does it handle all the specified features (e.g., adding, removing, or updating books)?
-  - [some] Are edge cases handled (e.g., empty inputs, duplicate entries)?
-  - [no] Are there any bugs or unexpected behaviors?
+  - [ ] Does it handle all the specified features (e.g., adding, removing, or updating books)?
+  - yes
+  - [ ] Are edge cases handled (e.g., empty inputs, duplicate entries)?
+  - some
+  - [ ] Are there any bugs or unexpected behaviors?
+  - [ ] no
 
 - **How well does the component integrate with other parts of the application?**
-  - [yes] Are props and state managed appropriately?
+  - [ ] Are props and state managed appropriately?
+  - yes
 
 ## 2. Code Quality
 - **Readability**
-  - [yes] Is the code easy to understand for other developers?
-  - [yes] Are variable and function names descriptive and meaningful?
+  - [ ] Is the code easy to understand for other developers?
+  - yes
+  - [ ] Are variable and function names descriptive and meaningful?
+  - yes
 
 - **Reusability**
-  - [yes] Can the component or parts of it be reused in other parts of the application?
+  - [ ] Can the component or parts of it be reused in other parts of the application?
+  - yes
 
 - **Comments and Documentation**
-  - [yes] Are there comments explaining complex logic?
-  - [yes] Is there documentation for how to use the component?
+  - [ ] Are there comments explaining complex logic?
+  - yes
+  - [ ] Is there documentation for how to use the component?
+  - yes
 
 ## 3. Performance
 - **Efficiency**
-  - [no] Are there any unnecessary re-renders or performance bottlenecks?
-  - [maybe] Is the component optimized for large datasets (if applicable)?
+  - [ ] Are there any unnecessary re-renders or performance bottlenecks?
+  - no
+  - [ ] Is the component optimized for large datasets (if applicable)?
+  - maybe
 
 - **State Management**
-  - [yes] Is state managed efficiently (e.g., minimal state, derived state)?
-  - [yes] Are hooks (e.g., `useState`, ) used correctly?
+  - [ ] Is state managed efficiently (e.g., minimal state, derived state)?
+  - yes
+  - [ ] Are hooks (e.g., `useState`, ) used correctly?
+  - yes
 
 ## 4. Overall Assessment
 - **Strengths**
