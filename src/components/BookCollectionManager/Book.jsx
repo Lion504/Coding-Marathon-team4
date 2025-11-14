@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function Book () {
+function Book (props) {
+    const { book, onDelete } = props;
 
     return (
         <li>
@@ -11,8 +12,6 @@ function Book () {
             <button onClick={onDelete}>Delete</button>
         </li>
         );
-
-
 }
 
 export default Book;
