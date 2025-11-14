@@ -2,43 +2,46 @@
 
 ## 1. Functionality
 - **Does the component meet the requirements?**
-  - [ ] Does it handle all the specified features (e.g., adding, removing, or updating books)?
-  - [ ] Are edge cases handled (e.g., empty inputs, duplicate entries)?
-  - [ ] Are there any bugs or unexpected behaviors?
+  - [Yes] Does it handle all the specified features in the image and instructions (e.g., Styling, Border color change, sign up functionality)?
+  - [Yes] Are edge cases handled (e.g., email format, password format, signup alerts)?
+  - [No] Are there any bugs or unexpected behaviors?
 
 - **How well does the component integrate with other parts of the application?**
-  - [ ] Are props and state managed appropriately?
+  - [Good] Are props and state managed appropriately?
 
 ## 2. Code Quality
 - **Readability**
-  - [ ] Is the code easy to understand for other developers?
-  - [ ] Are variable and function names descriptive and meaningful?
+  - [Yes] Is the code easy to understand for other developers?
+  - [Yes] Are variable and function names descriptive and meaningful?
 
 - **Reusability**
-  - [ ] Can the component or parts of it be reused in other parts of the application?
+  - [No] Can the component or parts of it be reused in other parts of the application?
 
 - **Comments and Documentation**
-  - [ ] Are there comments explaining complex logic?
-  - [ ] Is there documentation for how to use the component?
+  - [Yes] Are there comments explaining complex logic?
+  - [Yes] Is there documentation for how to use the component?
 
 ## 3. Performance
 - **Efficiency**
-  - [ ] Are there any unnecessary re-renders or performance bottlenecks?
-  - [ ] Is the component optimized for large datasets (if applicable)?
+  - [No] Are there any unnecessary re-renders or performance bottlenecks?
+  - [Yes] Is the component optimized for large datasets (if applicable)?
 
 - **State Management**
-  - [ ] Is state managed efficiently (e.g., minimal state, derived state)?
-  - [ ] Are hooks (e.g., `useState`, ) used correctly?
+  - [Yes] Is state managed efficiently (e.g., minimal state, derived state)?
+  - [Yes] Are hooks (e.g., `useState`, ) used correctly?
 
 ## 4. Overall Assessment
 - **Strengths**
-  - List the strengths of the component.
+  - Sign up can perform a normal sign up function for large datasets.
+  - It is informing user to prevent upcoming hurdles on user's end by adding instructions.
+  - It has alert functionality for both successfully sign up or failure.
 
 - **Areas for Improvement**
-  - List areas where the component could be improved.
+  - Password format can be improved
+  - Email structure can be improved to be more professional(e.g not submitting any noneexisting email and details)
 
 - **Action Plan**
-  - Outline specific steps to address the areas for improvement.
+  - Learn through online sources to improve email structure to prevent submitting noneexisting emails.
 
 ## 5. Additional Notes
-- Add any other relevant observations or feedback about the component.
+- I dont have any.
