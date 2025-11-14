@@ -23,6 +23,7 @@ function ShoppingCart() {
   function handleQuantityChange(index, event) {
     const quantity = Number(event.target.value);
     setItems((prevItems) => {
+      // If updating the quantity to less than 1 or not a number, delete the item
       if (!Number.isFinite(quantity) || quantity <= 0) {
         return prevItems.filter((_, i) => i !== index);
       }
@@ -74,7 +75,7 @@ function ShoppingCart() {
           min="1"
           onChange={handleInputChange}
         />
-        {notice && <p className="notice">{notice}</p>}
+        {notice && <p className="notice">{notice}</p>} // Shows a notice if there's a message in the notice state
         <button onClick={addItem}>Add Item</button>
       </div>
       <ol>
