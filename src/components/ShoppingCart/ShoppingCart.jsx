@@ -56,6 +56,10 @@ function ShoppingCart() {
     setItems(updatedItems);
   }
 
+  function clearCart() {
+    setItems([]);
+  }
+
   return (
     <div className="shopping-cart">
       <h1>Shopping Cart</h1>
@@ -91,6 +95,12 @@ function ShoppingCart() {
             {(item.price * item.quantity).toFixed(2)} €
           </li>
         ))}
+        {items.length === 0 && <p>No items in the cart</p>} {/* Shows if the cart is empty */}
+        {/* Show the following when the cart isn't empty */}
+        {items.length > 0 && <p>Subtotal: {items.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)} €</p>}
+        {items.length > 0 && <p>Tax (24%): {items.reduce((total, item) => total + (item.price * item.quantity * 0.24), 0).toFixed(2)} €</p>}
+        {items.length > 0 && <p>Total with Tax: {items.reduce((total, item) => total + (item.price * item.quantity * 1.24), 0).toFixed(2)} €</p>}
+        {items.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
       </ol>
     </div>
   );
