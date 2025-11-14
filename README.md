@@ -4,6 +4,11 @@
 
 ## 2. Contact List Manager - Wang
 
+- `handleJobTitleChange` used to update the job_title state
+- `handle...` same as above, include `handleBirthdayChange`, `handleNotesChange`, `handleWebsiteChange`, `handleFavoriteChange`
+- `addContact` used to to add a new contact to the list
+- `deleteContact` Removes a contact from the contacts
+
 ## 3. Recipe Manager - Kumudu
 
 ## 4. Shopping Cart - Unai
