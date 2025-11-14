@@ -11,6 +11,8 @@ function BookCollectionManager() {
   const [edition, setEdition] = useState("");
   const [pages, setPages] = useState("");
   const [rating, setRating] = useState("");
+  const [searchTitle, setSearchTitle] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
 
   // Handle input change for title
   function handleTitleChange(event) {
@@ -45,6 +47,17 @@ function BookCollectionManager() {
   // Handle input change for rating
   function handleRatingChange(event) {
     setRating(event.target.value);
+  }
+
+  //Handle search by title
+  function handleSearch() {
+    const results = searchBook(searchTitle);
+
+    if (results.length > 0) {
+      setSearchResult(results);
+    } else {
+      setSearchResult([]);
+    }
   }
 
   //Handle book creation
@@ -85,15 +98,18 @@ function BookCollectionManager() {
 
   //Search book by title
   function searchBook (title) {
-    const searchedBook = books.find((book) => book.title === title);
-    return searchedBook ? {...searchedBook} : null;
+    const lowerTitle = title.toLowerCase();
+
+    const searchedBook = books.filter((book) => book.title.toLowerCase().includes(lowerTitle));
+    return searchedBook;
   }
 
 
   return (
     <div className="book-collection">
       <h1>Book Collection Manager</h1>
-      <div>
+
+      <div className="form-container">
         <input
           type="text"
           placeholder="Enter book title..."
@@ -138,6 +154,36 @@ function BookCollectionManager() {
         />
         <button onClick={addBook}>Add Book</button>
       </div>
+
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search book by title..."
+          value={searchTitle}
+          onChange={(e) => setSearchTitle(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+
+      {Array.isArray(searchResult) && searchResult.length > 0 && (
+      <div className="search-result">
+      <strong>Found {searchResult.length} book(s):</strong>
+        <ul>
+        {searchResult.map((book, index) => (
+        <li key={index}>
+          {book.title} by {book.author}
+        </li>
+        ))}
+        </ul>
+      </div>
+      )}
+
+      {Array.isArray(searchResult) && searchResult.length === 0 && (
+      <div className="search-result not-found">
+        No book found with that title.
+      </div>
+      )}
+
       <ol>
         {books.map((book, index) => (
         <Book
